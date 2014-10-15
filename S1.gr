@@ -2,7 +2,7 @@
 
 # These two rules are required; choose their weights carefully!
 1 START -> S0
-10 START -> S
+99 START -> S
 1 START -> Q
 
 ###########
@@ -16,11 +16,12 @@
 20 S -> SP PP EOS
 5 S -> SP Object AdjP EOS
 5 S -> SP AdjP EOS
-5 S -> SP { e | Object } ( Pause ) CoordConj SP { e | Object } EOS
+5 S -> SP Object ( Pause ) CoordConj SP  Object EOS
 3 S -> SPT Object ( Pause ) CoordConj VerbAllT Object EOS
 3 S -> SPP Object ( Pause ) CoordConj VerbAllP Object EOS
 5 S -> WhAdverb SP Object , SP Object EOS
-5 S -> SP Object , WhAdverb SP Object EOS
+5 S -> SP WhDet S
+#5 S -> SP Object , WhAdverb SP Object EOS
 
 ###########
 # Questions
@@ -58,8 +59,10 @@
 
 ########################
 # Noun phrase definition
+1 Object -> e
 20 Object -> Object1
-1 Object -> Object1 CoordConj Object1
+1 Object -> Object1 ( Pause ) CoordConj Object1
+1 Object -> Object1 , Object1
 10 Object1 -> { NPT | NPP }
 10 Object1 -> { PObjPronounT | PObjPronounP }
 1 Object1 -> Obj
@@ -105,7 +108,7 @@
 2 NPT -> NbarT Poss { NPT | NPP }
 2 NPT -> PossPronoun NbarT1
 5 NbarT -> { e | Det } NbarT1
-5 NbarT -> NbarT2
+5 NbarT -> { e | Det } NbarT2
 8 NbarT1 -> AdjP Noun
 2 NbarT1 -> NbarT1 PP
 2 NbarT1 -> NbarT1 WhDet VerbAllT Object
@@ -118,11 +121,12 @@
 5 NPP -> NbarP Poss { NPT | NPP }
 2 NPP -> PossPronoun NbarP1
 5 NbarP -> { e | Det } NbarP1
-5 NbarP -> NbarP2
+5 NbarP -> { e | Det } NbarP2
 8 NbarP1 -> AdjP NounP 
 2 NbarP1 -> NbarP1 PP 
 2 NbarP1 -> NbarP1 WhDet VerbAllP Object
 2 NbarP1 -> NbarP1 WhDet SP
+2 NbarP1 -> NbarP1 WhDet SP Object
 2 NbarP2 -> ProperP
 
 ##########################

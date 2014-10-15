@@ -11,10 +11,10 @@
 
 # Singular and mass nouns.  Notice that only the
 # ones that start with consonants get our Noun tag.
-1   Noun -> {castle | king | defeater | sovereign | servant | corner | land | quest | chalice | master | horse | fruit | swallow | sun | winter | coconut | pound | husk | home | weight | story}
+1	Noun ->	{castle | king | defeater | sovereign | servant | corner | land | quest | chalice | master | horse | fruit | swallow | sun | winter | coconut | pound | husk | home | weight | story}
 
 # Determiners.
-1   Det  -> {a | another | any | each | every | no | that | the | this}
+1	Det	 -> {a | another | any | each | every | no | that | the | this}
 
 # Prepositions.
 1 Prep -> above
@@ -33,259 +33,261 @@
 1 Prep -> with
 
 # Proper nouns.  Note that our Proper tag is just for people.
-1   Proper -> {Arthur | Guinevere | Sir Lancelot | Sir Bedevere | Zoot | Dingo | Patsy | Uther Pendragon}
+1	Proper -> {Arthur | Guinevere | Sir Lancelot | Sir Bedevere | Zoot | Dingo | Patsy | Uther Pendragon}
 
 # Verbs (third person singular present).
 # Note that only transitive verbs get our VerbT tag,
 # and some of those could also function as intransitives!
-1   VerbT -> has
-1   VerbT -> covers
-1   VerbT -> drinks
-1   VerbT -> carries
-1   VerbT -> rides
+1	VerbT -> has
+1	VerbT -> covers
+1	VerbT -> drinks
+1	VerbT -> carries
+1	VerbT -> rides
 
 # End-of-sentence.
-1   EOS ->  !
-1   EOS ->  .
-1   QEOS -> ?
+1	EOS ->	!
+1	EOS ->	.
+1	QEOS ->	?
 
 # Pauses.
-50  Pause ->    ,
-1   Pause ->    ...
-1   Pause ->    --
-1   Pause ->    ;
-1   Pause ->    :
+10	Pause ->	,
+1	Pause ->	...
+1	Pause ->	--
+1	Pause ->	;
+1	Pause ->	:
 
 # Coordinating conjunctions.
-1   CoordConj ->    and
-1   CoordConj ->    but
-1   CoordConj ->    or
-1   CoordConj ->    either
-1   CoordConj ->    nor
-1   CoordConj ->    neither
-1   CoordConj ->    so
+1	CoordConj ->	and
+1	CoordConj ->	but
+1	CoordConj ->	or
+1	CoordConj ->	either
+1	CoordConj ->	nor
+1	CoordConj ->	neither
+1	CoordConj ->	so
 
 # Numbers.
-1   Numeral -> {eight | five | one | 5.5 | sixty | 5,000}
+1	Numeral -> {eight | five | one | 5.5 | sixty | 5,000}
 
 # Expletive.
-1   Expletive -> there
-1   Obj -> there
+1	Expletive -> there
+1	Obj -> there
 
 # Subordinating conjunctions.
-1   SubConj -> {that | so | while | because | if}
+1	SubConj -> {that | so | while | because | if}
 
 # Modals.
-1   Modals -> can
-1   Modals ->   could
-1   Modals ->   may
-1   Modals ->   might
-1   Modals ->   must
-1   Modals ->   shall
-1   Modals ->   should
-1   Modals ->   will
-1   Modals ->   would
-1   ModalsTo -> ought
+1	Modals -> can
+1	Modals ->	could
+1	Modals ->	may
+1	Modals ->	might
+1	Modals ->	must
+1	Modals ->	shall
+1	Modals ->	should
+1	Modals ->	will
+1	Modals ->	would
+1	ModalsTo ->	ought
 
 # Adjectives.
-1   RegAdjective -> bloody
-1   RegAdjective -> weary
-1   RegAdjective -> unable
-1   RegAdjective -> trusty
-1   RegAdjective -> further
-1   RegAdjective -> sacred
-1   RegAdjective -> tropical
-1   RegAdjective -> indigenous
-1   RegAdjective -> temperate
-1   RegAdjective -> hot
-1   RegAdjective -> lucky
-1   RegAdjective -> simple
-1   RegAdjective -> tiny
-1   RegAdjective -> hard    
-1   RegAdjective -> sensational
-1   RegAdjective -> comparable
-1   RegAdjective -> angolian
-1   RegAdjective -> yellow
-1   RegAdjective -> plodding
+1	RegAdjective ->	bloody
+1	RegAdjective ->	weary
+1	RegAdjective ->	unable
+1	RegAdjective ->	trusty
+1	RegAdjective ->	further
+1	RegAdjective ->	sacred
+1	RegAdjective ->	tropical
+1	RegAdjective ->	indigenous
+1	RegAdjective ->	temperate
+1	RegAdjective ->	hot
+1	RegAdjective ->	lucky
+1	RegAdjective ->	simple
+1	RegAdjective ->	tiny
+1	RegAdjective ->	hard	
+1	RegAdjective ->	sensational
+1	RegAdjective ->	comparable
+1	RegAdjective ->	angolian
+1	RegAdjective ->	yellow
+1	RegAdjective ->	plodding
 
 # Comparative adjectives.
-1   CompAdjective ->    bloodier
-1   CompAdjective ->    wearier
-1   CompAdjective ->    trustier
-1   CompAdjective ->    hotter
-1   CompAdjective ->    simpler
-1   CompAdjective ->    tinier
-1   CompAdjective ->    harder
+1	CompAdjective ->	bloodier
+1	CompAdjective ->	wearier
+1	CompAdjective ->	trustier
+1	CompAdjective ->	hotter
+1	CompAdjective ->	simpler
+1	CompAdjective ->	tinier
+1	CompAdjective ->	harder
 
 # Superlative adjectives.
-1   SupAdjective -> bloodiest
-1   SupAdjective -> weariest
-1   SupAdjective -> trustiest
-1   SupAdjective -> hottest
-1   SupAdjective -> simplest
-1   SupAdjective -> tiniest
-1   SupAdjective -> hardest
+1	SupAdjective ->	bloodiest
+1	SupAdjective ->	weariest
+1	SupAdjective ->	trustiest
+1	SupAdjective ->	hottest
+1	SupAdjective ->	simplest
+1	SupAdjective ->	tiniest
+1	SupAdjective ->	hardest
 
 # Plural nouns.
-1   NounP ->    coconuts
-1   NounP ->    halves
-1   NounP ->    snows
-1   NounP ->    mountains
-1   NounP ->    areas
-1   NounP ->    strangers
-1   NounP ->    inches
-1   NounP ->    snakes
-1   NounP ->    ants
-1   NounP ->    nights
+1	NounP ->	coconuts
+1	NounP ->	halves
+1	NounP ->	snows
+1	NounP ->	mountains
+1	NounP ->	areas
+1	NounP ->	strangers
+1	NounP ->	inches
+1	NounP ->	snakes
+1	NounP ->	ants
+1	NounP ->	nights
 
 # More proper nouns, not people.
 
-1   Proper ->   Camelot
-1   Proper ->   England
-1   Proper ->   Holy Grail
-1   Proper ->   Round Table
+1	Proper ->	Camelot
+1	Proper ->	England
+1	Proper ->	Holy Grail
+1	Proper ->	Round Table
 
 # Plural proper nouns.
-1   ProperP ->  Britons
-1   ProperP ->  Saxons
+1	ProperP ->	Britons
+1	ProperP ->	Saxons
 
 # Personal pronouns.
-1   PPronounT ->    he
-1   PPronounT ->    she
-1   PPronounT ->    it
-1   PPronounT ->    one
-1   PPronounP ->    they
-1   PObjPronounT -> her
-1   PObjPronounT -> him
-1   PObjPronounP -> them
+1	PPronounT ->	he
+1	PPronounT ->	she
+1	PPronounT ->	it
+1	PPronounT ->	one
+1	PPronounP ->	they
+1	PObjPronounT ->	her
+1	PObjPronounT ->	him
+1	PObjPronounP ->	them
+1	PObjPronounT ->	it
+1	PObjPronounP ->	it
 
 # Possessive personal pronouns
-1   PossPronoun ->  her
-1   PossPronoun ->  his
-1   PossPronoun ->  its
-1   PossPronoun ->  their
+1	PossPronoun ->	her
+1	PossPronoun ->	his
+1	PossPronoun ->	its
+1	PossPronoun ->	their
 
 # Adverbs.
-1   Adverb ->   again
-1   Adverb ->   already
-1   Adverb ->   currently
-1   Adverb ->   frequently
-1   Adverb ->   precisely
-1   Adverb ->   south
-1   Adverb ->   successfully
-1   Adverb ->   unfortunately
+1	Adverb ->	again
+1	Adverb ->	already
+1	Adverb ->	currently
+1	Adverb ->	frequently
+1	Adverb ->	precisely
+1	Adverb ->	south
+1	Adverb ->	successfully
+1	Adverb ->	unfortunately
 
 # 'do'/'does'
-1   AuxVerbP -> do
-1   AuxVerbT -> does
+1	AuxVerbP ->	do
+1	AuxVerbT ->	does
 
 # Auxiliary verb past participle plural (present, past)
-1   AuxVerbPPP ->   have
-1   AuxVerbPPPP -> had
+1	AuxVerbPPP ->	have
+1	AuxVerbPPPP -> had
 # third-person
-1   AuxVerbPPT ->   has
+1	AuxVerbPPT ->	has
 
 # 'to'
-1   To ->   to
+1	To ->	to
 
 # 'not'
-1   Not ->  not
+1	Not ->	not
 
 # 'be'
-1   BeVerbT -> is
-1   BeVerbB ->  be
-1   BeVerbPT -> was
-1   BeVerbPP -> were
-1   BeVerbPrPart -> being
-1   BeVerbPaPart -> been
+1	BeVerbT -> is
+1	BeVerbB ->	be
+1	BeVerbPT ->	was
+1	BeVerbPP ->	were
+1	BeVerbPrPart ->	being
+1	BeVerbPaPart ->	been
 
 # Verbs (base form).
-1   VerbB ->    have
-1   VerbB ->    speak
-1   VerbB ->    cover
-1   VerbB ->    ride
-1   VerbB ->    drink
-1   VerbB ->    grow
-1   VerbB ->    carry
-1   VerbB ->    suggest
-1   VerbB ->    migrate
-1   VerbB ->    know
+1	VerbB ->	have
+1	VerbB ->	speak
+1	VerbB ->	cover
+1	VerbB ->	ride
+1	VerbB ->	drink
+1	VerbB ->	grow
+1	VerbB ->	carry
+1	VerbB ->	suggest
+1	VerbB ->	migrate
+1	VerbB ->	know
 
 # Verbs (past tense).
-1   VerbP ->    had
-1   VerbP ->    spoke
-1   VerbP ->    covered
-1   VerbP ->    rode
-1   VerbP ->    drank
-1   VerbP ->    grew
-1   VerbP ->    carried
-1   VerbP ->    suggested
-1   VerbP ->    migrated
-1   VerbP ->    knew
+1	VerbP ->	had
+1	VerbP ->	spoke
+1	VerbP ->	covered
+1	VerbP ->	rode
+1	VerbP ->	drank
+1	VerbP ->	grew
+1	VerbP ->	carried
+1	VerbP ->	suggested
+1	VerbP ->	migrated
+1	VerbP ->	knew
 
 # Verbs (present participles).
-1   VerbPrPart ->   having
-1   VerbPrPart ->   speaking
-1   VerbPrPart ->   covering
-1   VerbPrPart ->   riding
-1   VerbPrPart ->   drinking
-1   VerbPrPart ->   growing
-1   VerbPrPart ->   carrying
-1   VerbPrPart ->   suggesting
-1   VerbPrPart ->   migrating
-1   VerbPrPart ->   knowing
+1	VerbPrPart ->	having
+1	VerbPrPart ->	speaking
+1	VerbPrPart ->	covering
+1	VerbPrPart ->	riding
+1	VerbPrPart ->	drinking
+1	VerbPrPart ->	growing
+1	VerbPrPart ->	carrying
+1	VerbPrPart ->	suggesting
+1	VerbPrPart ->	migrating
+1	VerbPrPart ->	knowing
 
 # Verbs (past participle).
-1   VerbPaPart ->   had
-1   VerbPaPart ->   spoken
-1   VerbPaPart ->   covered
-1   VerbPaPart ->   ridden
-1   VerbPaPart ->   drunk
-1   VerbPaPart ->   grown
-1   VerbPaPart ->   carried
-1   VerbPaPart ->   suggested
-1   VerbPaPart ->   migrated
-1   VerbPaPart ->   known
+1	VerbPaPart ->	had
+1	VerbPaPart ->	spoken
+1	VerbPaPart ->	covered
+1	VerbPaPart ->	ridden
+1	VerbPaPart ->	drunk
+1	VerbPaPart ->	grown
+1	VerbPaPart ->	carried
+1	VerbPaPart ->	suggested
+1	VerbPaPart ->	migrated
+1	VerbPaPart ->	known
 
 # More third person singular verbs.
-1   VerbT ->    speaks
-1   VerbT ->    grows
-1   VerbT ->    goes
-1   VerbT ->    migrates
-1   VerbT ->    suggests
-1   VerbT ->    knows
+1	VerbT ->	speaks
+1	VerbT ->	grows
+1	VerbT ->	goes
+1	VerbT ->	migrates
+1	VerbT ->	suggests
+1	VerbT ->	knows
 
 # Verbs (present, plural, third person).
-1   VerbTP ->   have
-1   VerbTP ->   speak
-1   VerbTP ->   cover
-1   VerbTP ->   are
-1   VerbTP ->   ride
-1   VerbTP ->   drink
-1   VerbTP ->   grow
-1   VerbTP ->   carry
-1   VerbTP ->   suggest
-1   VerbTP ->   migrate
-1   VerbTP ->   know
+1	VerbTP ->	have
+1	VerbTP ->	speak
+1	VerbTP ->	cover
+1	VerbTP ->	are
+1	VerbTP ->	ride
+1	VerbTP ->	drink
+1	VerbTP ->	grow
+1	VerbTP ->	carry
+1	VerbTP ->	suggest
+1	VerbTP ->	migrate
+1	VerbTP ->	know
 
 # Wh-determiners.
-1   WhDet ->    that
-1   WhDet ->    what
-1   WhDet ->    which
+1	WhDet ->	that
+1	WhDet ->	what
+1	WhDet ->	which
 
 # Wh-pronouns.
-1   WhPronoun ->    what
-1   WhPronoun ->    who
+1	WhPronoun ->	what
+1	WhPronoun ->	who
 
 # Wh possessive pronoun.
-1   WhPossPronoun ->    whose
+1	WhPossPronoun ->	whose
 
 # Wh-adverbs
-1   WhAdverb -> how
-1   WhAdverb -> when
-1   WhAdverb -> where
-1   WhAdverb -> why
+1	WhAdverb ->	how
+1	WhAdverb ->	when
+1	WhAdverb ->	where
+1	WhAdverb ->	why
 
 
 # Possessive marker.
-1   Poss -> 's
+1	Poss ->	's
