@@ -2,7 +2,7 @@
 
 # These two rules are required; choose their weights carefully!
 1 START -> S0
-99 START -> S
+50 START -> S
 1 START -> Q
 
 ###########
@@ -105,11 +105,12 @@
 
 # Third-person noun phrases
 8 NPT -> NbarT
-2 NPT -> NbarT Poss { NPT | NPP }
+#2 NPT -> NbarT Poss { NPT | NPP }
 2 NPT -> PossPronoun NbarT1
 5 NbarT -> { e | Det } NbarT1
 5 NbarT -> { e | Det } NbarT2
-8 NbarT1 -> AdjP Noun
+20 NbarT1 -> Noun
+8 NbarT1 -> AdjP NbarT1
 2 NbarT1 -> NbarT1 PP
 2 NbarT1 -> NbarT1 WhDet VerbAllT Object
 2 NbarT1 -> NbarT1 WhDet SP 
@@ -122,7 +123,8 @@
 2 NPP -> PossPronoun NbarP1
 5 NbarP -> { e | Det } NbarP1
 5 NbarP -> { e | Det } NbarP2
-8 NbarP1 -> AdjP NounP 
+20 NbarP1 -> NounP
+8 NbarP1 -> AdjP NbarP1
 2 NbarP1 -> NbarP1 PP 
 2 NbarP1 -> NbarP1 WhDet VerbAllP Object
 2 NbarP1 -> NbarP1 WhDet SP
