@@ -1,0 +1,199 @@
+# The start symbol is START.
+
+# These two rules are required; choose their weights carefully!
+1 START -> S0
+10 START -> S
+1 START -> Q
+
+###########
+# Sentences
+1 SPT -> SNPT VerbAllT
+1 SPP -> SNPP VerbAllP
+1 SP -> SPT
+1 SP -> SPP
+5 S -> SP EOS
+20 S -> SP Object EOS
+20 S -> SP PP EOS
+5 S -> SP Object AdjP EOS
+5 S -> SP AdjP EOS
+5 S -> SP { e | Object } ( Pause ) CoordConj SP { e | Object } EOS
+3 S -> SPT Object ( Pause ) CoordConj VerbAllT Object EOS
+3 S -> SPP Object ( Pause ) CoordConj VerbAllP Object EOS
+5 S -> WhAdverb SP Object , SP Object EOS
+5 S -> SP Object , WhAdverb SP Object EOS
+
+###########
+# Questions
+1 QPBaseT -> AuxVerbT SNPT
+1 QPBaseP -> AuxVerbP SNPP
+1 QPBase -> QPBaseT
+1 QPBase -> QPBaseP
+1 QPPrPartT -> AuxVerbPPT SNPT
+1 QPPrPartP -> AuxVerbPPP SNPP
+1 QPPrPartP -> AuxVerbPPPP SNPP
+1 QPPrPart -> QPPrPartT
+1 QPPrPart -> QPPrPartP
+10 Q -> WhPossPronoun QPBase VerbBaseAll Object QEOS
+10 Q -> WhPronoun QPBase VerbBaseAll Object QEOS
+5 Q -> WhPossPronoun QPPrPart VerbPrPartAll Object QEOS
+5 Q -> WhPronoun QPPrPart VerbPrPartAll Object QEOS
+10 Q -> WhPossPronoun QPBase VerbBaseAll QEOS
+10 Q -> WhPronoun QPBase VerbBaseAll QEOS
+5 Q -> WhPossPronoun QPPrPart VerbPrPartAll QEOS
+5 Q -> WhPronoun QPPrPart VerbPrPartAll QEOS
+
+10 Q -> QPBase VerbBaseAll Object QEOS
+5 Q -> QPPrPart VerbPrPartAll Object QEOS
+10 Q -> QPBase VerbBaseAll QEOS
+5 Q -> QPPrPart VerbPrPartAll QEOS
+
+#################
+# Subject phrases
+2  SNPT -> PPronounT
+2  SNPT -> Proper
+1  SNPT -> NPT
+2  SNPP -> PPronounP
+2  SNPP -> ProperP
+1  SNPP -> NPP
+
+########################
+# Noun phrase definition
+20 Object -> Object1
+1 Object -> Object1 CoordConj Object1
+10 Object1 -> { NPT | NPP }
+10 Object1 -> { PObjPronounT | PObjPronounP }
+1 Object1 -> Obj
+
+####################
+# Preposition phrase
+1 PP -> Prep Object
+
+###################
+# Adjective phrases
+#1 AdjP -> AdvP AdjBar1
+#1 AdjP -> AdjBar2
+#1 AdjP -> AdjBar3
+#1 AdjP -> AdjBar4
+#10 AdjBar1 -> e
+#10 AdjBar1 -> AdjBar1 RegAdjective
+#10 AdjBar2 -> e
+#1 AdjBar2 -> AdjBar2 RegAdjective
+#10 AdjBar3 -> e
+#1 AdjBar3 -> AdjBar3 SupAdjective
+#10 AdjBar4 -> e
+#1 AdjBar4 -> AdjBar4 CompAdjective
+10 AdjP -> e
+1 AdjP -> AdvP RegAdjective
+1 AdjP -> AdjBar2
+1 AdjP -> AdjBar3
+1 AdjP -> AdjBar4
+10 AdjBar2 -> e
+1 AdjBar2 -> AdjBar2 RegAdjective
+10 AdjBar3 -> e
+1 AdjBar3 -> AdjBar3 SupAdjective
+10 AdjBar4 -> e
+1 AdjBar4 -> AdjBar4 CompAdjective
+
+#######################
+# Adverb phrase
+1 AdvP -> AdvBar
+90 AdvBar -> e
+1 AdvBar -> AdvBar Adverb
+
+# Third-person noun phrases
+8 NPT -> NbarT
+2 NPT -> NbarT Poss { NPT | NPP }
+2 NPT -> PossPronoun NbarT1
+5 NbarT -> { e | Det } NbarT1
+5 NbarT -> NbarT2
+8 NbarT1 -> AdjP Noun
+2 NbarT1 -> NbarT1 PP
+2 NbarT1 -> NbarT1 WhDet VerbAllT Object
+2 NbarT1 -> NbarT1 WhDet SP 
+2 NbarT1 -> NbarT1 WhDet SP Object
+2 NbarT2 -> Proper
+
+# Plural noun phrases
+8 NPP -> NbarP 
+5 NPP -> NbarP Poss { NPT | NPP }
+2 NPP -> PossPronoun NbarP1
+5 NbarP -> { e | Det } NbarP1
+5 NbarP -> NbarP2
+8 NbarP1 -> AdjP NounP 
+2 NbarP1 -> NbarP1 PP 
+2 NbarP1 -> NbarP1 WhDet VerbAllP Object
+2 NbarP1 -> NbarP1 WhDet SP
+2 NbarP2 -> ProperP
+
+##########################
+# Third-person verbs
+10  VerbAllT -> VerbT
+10  VerbAllT -> VerbP
+10  VerbAllT -> BeVerbT VerbPrPart
+10  VerbAllT -> BeVerbPT VerbPrPart
+10  VerbAllT -> AuxVerbPPT VerbPaPart
+10  VerbAllT -> AuxVerbPPPP VerbPaPart
+10  VerbAllT -> AuxVerbPPT BeVerbPaPart VerbPrPart
+10  VerbAllT -> AuxVerbPPPP BeVerbPaPart VerbPrPart
+10  VerbAllT -> Modals VerbB
+10  VerbAllT -> Modals BeVerbB VerbPrPart
+10  VerbAllT -> Modals AuxVerbPPP VerbPaPart
+10  VerbAllT -> ModalsTo To VerbB
+10  VerbAllT -> ModalsTo To BeVerbB VerbPrPart
+10  VerbAllT -> ModalsTo To AuxVerbPPP VerbPaPart
+10  VerbAllT -> ModalsTo To AuxVerbPPP BeVerbPaPart VerbPrPart
+# Negations
+1  VerbAllT -> AuxVerbT Not VerbB
+1  VerbAllT -> BeVerbT Not VerbPrPart
+1  VerbAllT -> BeVerbPT Not VerbPrPart
+1  VerbAllT -> AuxVerbPPT Not VerbPaPart
+1  VerbAllT -> AuxVerbPPPP Not VerbPaPart
+1  VerbAllT -> AuxVerbPPT Not BeVerbPaPart VerbPrPart
+1  VerbAllT -> AuxVerbPPPP Not BeVerbPaPart VerbPrPart
+1  VerbAllT -> Modals Not VerbB
+1  VerbAllT -> Modals Not BeVerbB VerbPrPart
+1  VerbAllT -> Modals Not AuxVerbPPP VerbPaPart
+1  VerbAllT -> ModalsTo Not To VerbB
+1  VerbAllT -> ModalsTo Not To BeVerbB VerbPrPart
+1  VerbAllT -> ModalsTo Not To AuxVerbPPP VerbPaPart
+1  VerbAllT -> ModalsTo Not To AuxVerbPPP BeVerbPaPart VerbPrPart
+
+# Plural verbs
+10  VerbAllP -> VerbB
+10  VerbAllP -> VerbP
+10  VerbAllP -> BeVerbPP VerbPrPart
+10  VerbAllP -> AuxVerbPPP VerbPaPart
+10  VerbAllP -> AuxVerbPPPP VerbPaPart
+10  VerbAllP -> AuxVerbPPP BeVerbPaPart VerbPrPart
+10  VerbAllP -> AuxVerbPPPP BeVerbPaPart VerbPrPart
+10  VerbAllP -> Modals VerbB
+10  VerbAllP -> Modals BeVerbB VerbPrPart
+10  VerbAllP -> Modals AuxVerbPPP VerbPaPart
+10  VerbAllP -> ModalsTo To VerbB
+10  VerbAllP -> ModalsTo To BeVerbB VerbPrPart
+10  VerbAllP -> ModalsTo To AuxVerbPPP VerbPaPart
+10  VerbAllP -> ModalsTo To AuxVerbPPP BeVerbPaPart VerbPrPart
+# Negations
+1  VerbAllP -> AuxVerbP Not VerbB
+1  VerbAllP -> BeVerbPP Not VerbPrPart
+1  VerbAllP -> AuxVerbPPP Not VerbPaPart
+1  VerbAllP -> AuxVerbPPPP Not VerbPaPart
+1  VerbAllP -> AuxVerbPPP Not BeVerbPaPart VerbPrPart
+1  VerbAllP -> AuxVerbPPPP Not BeVerbPaPart VerbPrPart
+1  VerbAllP -> Modals Not VerbB
+1  VerbAllP -> Modals Not BeVerbB VerbPrPart
+1  VerbAllP -> Modals Not AuxVerbPPP VerbPaPart
+1  VerbAllP -> ModalsTo Not To VerbB
+1  VerbAllP -> ModalsTo Not To BeVerbB VerbPrPart
+1  VerbAllP -> ModalsTo Not To AuxVerbPPP VerbPaPart
+1  VerbAllP -> ModalsTo Not To AuxVerbPPP BeVerbPaPart VerbPrPart
+
+# Base verbs
+10 VerbBaseAll -> VerbB
+1  VerbBaseAll -> BeVerbB
+1  VerbBaseAll -> BeVerbB VerbPrPart
+
+# Pase participle verbs
+10 VerbPrPartAll -> VerbPaPart
+1  VerbPrPartAll -> BeVerbPaPart
+1  VerbPrPartAll -> BeVerbPaPart VerbPrPart
